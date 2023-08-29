@@ -15,25 +15,33 @@
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
+    "@angular/material": "13.1.2",
+    "@angular/material-moment-adapter": "13.1.2",
+    "@fontsource/material-icons": "4.5.0",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ngrx/effects": "13.0.2",
+    "@ngrx/entity": "13.0.2",
+    "@ngrx/router-store": "13.0.2",
+    "@ngrx/store": "13.0.2",
+    "@ngrx/store-devtools": "13.0.2",
+    "@ngrx/schematics": "13.0.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.6",
     "@angular/cli": "~13.2.6",
     "@angular/compiler-cli": "~13.2.0",
-    "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
-    "jasmine-core": "~4.0.0",
-    "karma": "~6.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.1.0",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.5.2"
+    "cypress": "^12.17.4",
+    "typescript": "~4.5.2",
+    "jest": "27.4.5",
+    "jest-html-reporter": "3.4.2",
+    "jest-marbles": "3.0.2",
+    "jest-preset-angular": "11.0.1",
+    "ts-jest": "27.1.1"
   }
 }

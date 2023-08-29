@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Install NgRx Packages:
+`@ngrx/store`: The core package for managing state in the store.
+`@ngrx/effects`: For managing side effects, such as API calls.
+`@ngrx/entity`: For managing collections of entities with a normalized structure.
+`@ngrx/store-devtools`: Optional package for debugging NgRx state using the Redux DevTools extension.
