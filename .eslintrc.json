@@ -1,57 +1,45 @@
 {
   "root": true,
   "ignorePatterns": [
-    "**/*"
-  ],
-  "plugins": [
-    "@nrwl/nx"
+    "projects/**/*"
   ],
   "overrides": [
     {
       "files": [
-        "*.ts",
-        "*.tsx",
-        "*.js",
-        "*.jsx"
+        "*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
+        "@angular-eslint/directive-selector": [
           "error",
           {
-            "enforceBuildableLibDependency": true,
-            "allow": ["@acx/ui/common"],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": [
-                  "*"
-                ]
-              }
-            ]
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
           }
         ]
       }
     },
     {
       "files": [
-        "*.ts",
-        "*.tsx"
+        "*.html"
       ],
       "extends": [
-        "plugin:@nrwl/nx/typescript"
-      ],
-      "rules": {
-        "quote-props": ["error", "as-needed"],
-        "quotes": ["error", "single"]
-      }
-    },
-    {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
-      "extends": [
-        "plugin:@nrwl/nx/javascript"
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {}
     }
