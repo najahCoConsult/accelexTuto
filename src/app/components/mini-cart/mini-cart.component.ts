@@ -9,6 +9,7 @@ export class MiniCartComponent {
   @Input() title!: string;
   @Input() price!: number;
   @Input() id!: number;
+  @Input() quantity!: number;
 
   @Output() removeFromCart = new EventEmitter<number>();
 
