@@ -71,3 +71,20 @@
     }
   }
 }
+
+.sidenav-container {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mat-sidenav {
+  width: 500px;
+}
+
+
+
+mat-sidenav-content {
+  padding: 16px;
+}

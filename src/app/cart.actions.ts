@@ -8,6 +8,6 @@ export const addToCart = createAction(
 
 export const removeFromCart = createAction(
     '[Cart] Remove from Cart',
-    props<{ product: Product }>()
+    props<{ id: number }>()
 );
 export const emptyCart = createAction('[Cart] Empty Cart');

@@ -8,11 +8,19 @@
   </div>
   <h1 class="top-nav__header">Angular Shopping Cart</h1>
   <div class="top-nav__cart">
-    <a [routerLink]="['/cart']">
-      <button mat-icon-button>
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
-    </a>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
   </div>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" closed>
+      <app-mini-cart
+        *ngFor="let item of cart$ | async"
+        [title]="item.title"
+        [price]="item.price"
+        [id]="item.id"
+        (removeFromCart)="removeProductFromCart($event)"
+      ></app-mini-cart>
+    </mat-sidenav>
+  </mat-sidenav-container>
 </div>
-

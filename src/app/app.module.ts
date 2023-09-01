@@ -17,6 +17,8 @@ import {StoreRouterConnectingModule} from "@ngrx/router-store";
 import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { ProductDescriptionComponent } from './components/product-description/product-description.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { MiniCartComponent } from './components/mini-cart/mini-cart.component';
 
 @NgModule({
     declarations: [
@@ -24,10 +26,11 @@ import { ProductDescriptionComponent } from './components/product-description/pr
         TopBarComponent,
         ProductCardComponent,
         ProductsListPageComponent,
-        ProductDescriptionComponent
+        ProductDescriptionComponent,
+        MiniCartComponent
     ],
     imports: [
-        StoreModule.forRoot({ cart: cartReducer }),
+        StoreModule.forRoot({cart: cartReducer}),
         BrowserModule,
         AppRoutingModule,
         MatToolbarModule,
@@ -35,9 +38,10 @@ import { ProductDescriptionComponent } from './components/product-description/pr
         MatButtonModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
         EffectsModule.forRoot([]),
         StoreRouterConnectingModule.forRoot(),
+        MatSidenavModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
