@@ -60,6 +60,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartPageComponent } from './components/cart-page/cart-page.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
     declarations: [
@@ -69,7 +71,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ProductsListPageComponent,
         ProductDescriptionComponent,
         MiniCartComponent,
-        FilterBlockComponent
+        FilterBlockComponent,
+        CartPageComponent,
+        CartItemComponent
     ],
     imports: [
         StoreModule.forRoot({cart: cartReducer}),
