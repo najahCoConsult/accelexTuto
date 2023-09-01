@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-card',
@@ -14,12 +15,12 @@ export class ProductCardComponent {
 
     @Output() addToCart = new EventEmitter<number>();
 
-    hover: boolean;
-    constructor() {
-        this.hover = false;
-    }
+    constructor(private router: Router) {}
 
     add = () => {
         this.addToCart.emit(this.id);
+    };
+    navigate = () => {
+        this.router.navigate([this.title]);
     };
 }
