@@ -4,12 +4,9 @@ import {ShopService} from "../../services/shop.service";
 import {ActivatedRoute} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {
-    addToCart,
-    emptyCart,
-    removeFromCart,
-} from 'src/app/cart.actions';
+import {addToCart,} from 'src/app/cart.actions';
 import {CartState} from "../../cart.state";
+
 @Component({
     selector: 'app-products-list-page',
     templateUrl: './products-list-page.component.html',
@@ -53,6 +50,6 @@ export class ProductsListPageComponent implements OnInit {
     }
 
     add(product: Product) {
-        this.store.dispatch(addToCart({ product }));
+        this.store.dispatch(addToCart({product}));
     }
 }
