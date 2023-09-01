@@ -16,13 +16,15 @@ import {StoreModule} from "@ngrx/store";
 import {StoreRouterConnectingModule} from "@ngrx/router-store";
 import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import { ProductDescriptionComponent } from './components/product-description/product-description.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         TopBarComponent,
         ProductCardComponent,
-        ProductsListPageComponent
+        ProductsListPageComponent,
+        ProductDescriptionComponent
     ],
     imports: [
         StoreModule.forRoot({ cart: cartReducer }),
