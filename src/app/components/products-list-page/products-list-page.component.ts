@@ -24,8 +24,8 @@ export class ProductsListPageComponent implements OnInit {
     }
 
     products: Product[] = [];
-    url: string = 'category/';
-    category: string = '';
+    url = 'category/';
+    category = '';
 
     ngOnInit(): void {
         this.route.params.subscribe((params) => {
@@ -43,7 +43,7 @@ export class ProductsListPageComponent implements OnInit {
     }
 
     addProductToCart($event: number) {
-        let product: Product[] = this.products.filter(
+        const product: Product[] = this.products.filter(
             (product) => product.id === $event
         );
         this.add(product[0]);
