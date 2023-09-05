@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ShopService} from "../../services/shop.service";
 import {Store} from "@ngrx/store";
-import {CartState} from "../../cart.state";
-import {addToCart,addQuantity } from "../../cart.actions";
+import {CartState} from "../../store/cart.state";
+import {addQuantity, addToCart} from "../../store/cart.actions";
 import {Product} from "../../models/products.model";
 import {checkIfItemExistsInCart} from "../../utils/functions/check-if-item-exists-in-cart";
 

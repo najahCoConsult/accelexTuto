@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FilterBlockComponent } from './filter-block.component';
+import {FilterBlockComponent} from './filter-block.component';
 
 describe('FilterBlockComponent', () => {
   let component: FilterBlockComponent;

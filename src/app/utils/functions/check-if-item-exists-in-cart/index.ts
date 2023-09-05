@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { Product } from 'src/app/models/products.model';
+import {Observable} from 'rxjs';
+import {Product} from 'src/app/models/products.model';
 
 export const checkIfItemExistsInCart = (
     itemId: number,

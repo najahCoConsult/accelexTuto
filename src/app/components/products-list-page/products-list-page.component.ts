@@ -4,8 +4,10 @@ import {ShopService} from "../../services/shop.service";
 import {ActivatedRoute} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {addToCart,} from 'src/app/cart.actions';
-import {CartState} from "../../cart.state";
+import {addQuantity, addToCart} from 'src/app/store/cart.actions';
+import {CartState} from "../../store/cart.state";
+import {CartProduct} from "../../models/cart-product.model";
+import {checkIfItemExistsInCart} from "../../utils/functions/check-if-item-exists-in-cart";
 
 @Component({
     selector: 'app-products-list-page',
@@ -13,15 +15,17 @@ import {CartState} from "../../cart.state";
     styleUrls: ['./products-list-page.component.scss']
 })
 export class ProductsListPageComponent implements OnInit {
-    cart$!: Observable<Product[]>;
+    cart$!: Observable<CartProduct[]>;
     initialProducts!: Product[];
     products: Product[] = [];
     url = 'category/';
     category = '';
+
     constructor(
         private shopService: ShopService,
         private readonly route: ActivatedRoute,
-        private store: Store<CartState>
+        private store: Store<CartState>,
+        // private snackbarService: SnackbarService
     ) {
         this.cart$ = this.store.select('cart'); // Assign the cart$ observable
     }
@@ -47,12 +51,24 @@ export class ProductsListPageComponent implements OnInit {
         const product: Product[] = this.products.filter(
             (product) => product.id === $event
         );
-        this.add(product[0]);
+        if (checkIfItemExistsInCart($event, this.cart$)) {
+            this.addQuantity($event);
+            //snackbar here
+            // this.snackbarService.snackbarCall('Item quantity increased');
+        } else {
+            this.addToCart(product[0]);
+            // this.snackbarService.snackbarCall('Item added to cart');
+        }
     }
 
-    add(product: Product) {
-        this.store.dispatch(addToCart({product}));
+    addToCart(product: Product) {
+        this.store.dispatch(addToCart({ product }));
     }
+
+    addQuantity(itemId: number) {
+        this.store.dispatch(addQuantity({ id: itemId }));
+    }
+
     filterByNameHandler($event: string) {
         if ($event === '') {
             this.products = [...this.initialProducts];
@@ -65,7 +81,6 @@ export class ProductsListPageComponent implements OnInit {
     }
 
     filterByOptionHandler($event: string) {
-        console.log($event);
         if ($event === 'Most expensive') {
             this.products = this.initialProducts.sort((a, b) => b.price - a.price);
         } else if ($event === 'Least expensive') {

@@ -4,7 +4,7 @@
       <img [src]="image" alt="product image" />
     </div>
     <div class="product-card__description">
-      <p class="product-card__description__title">{{ title }}</p>
+      <p class="product-card__description__title">{{ title | productHeadingPipe }}</p>
       <p class="product-card__description__price">
         <span>{{ price }} $</span>
       </p>

@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-card',
@@ -15,12 +14,7 @@ export class ProductCardComponent {
 
     @Output() addToCart = new EventEmitter<number>();
 
-    constructor(private router: Router) {}
-
     add = () => {
         this.addToCart.emit(this.id);
-    };
-    navigate = () => {
-        this.router.navigate([this.title]);
     };
 }
